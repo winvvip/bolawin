@@ -1,0 +1,39 @@
+<div class="center">
+	<figure class="ampstart-image-fullpage-hero m0 relative mb4">
+    <amp-img width="404" height="720" alt="<?=$fkw?>" layout="responsive" src="../images/<?=$site?>-<?=$ufkw0?>.jpg" media="(max-width: 415px)" alt="<?=$fkw0?>"></amp-img>
+    <amp-img height="720" alt="<?=$fkw?>" layout="fixed-height" src="../images/<?=$site?>-<?=$ufkw0?>.jpg" media="(min-width: 416px)" alt="<?=$fkw0?>"></amp-img>
+    <figcaption class="absolute top-0 right-0 bottom-0 left-0">
+		<header><h2><?=$site?></br><?=$fkw?></h2></header>
+    </figcaption>
+	</figure>
+</div>
+
+<main id="content" role="main">
+<article class="<?=$site?>">
+	<h1 id="story"><?=$title?></h1>
+	<p class="ampstart-dropcap">Selamat datang di situs <?=$site?>, sebuah situs yang mengulas <?=$fkw?> secara lengkap.</p>
+	<?php include 'content/0.html';?>
+
+	<h2 id="gallery">Baca Juga <?=$fkw?> Lainnya</h2>
+	<amp-image-lightbox id="lightbox" layout="nodisplay"></amp-image-lightbox>
+	<amp-carousel class="mxn3" height="200" layout="fixed-height" type="carousel">
+	<amp-img src="../images/<?=$site?>-<?=$ufkw1?>.jpg" width="300" height="200" alt="<?=$fkw1?>" on="tap:lightbox" role="button" tabindex="0"></amp-img>
+	<amp-img src="../images/<?=$site?>-<?=$ufkw2?>.jpg" width="300" height="200" alt="<?=$fkw2?>" on="tap:lightbox" role="button" tabindex="0"></amp-img>
+	<amp-img src="../images/<?=$site?>-<?=$ufkw3?>.jpg" width="300" height="200" alt="<?=$fkw3?>" on="tap:lightbox" role="button" tabindex="0"></amp-img>
+	<amp-img src="../images/<?=$site?>-<?=$ufkw4?>.jpg" width="300" height="200" alt="<?=$fkw3?>" on="tap:lightbox" role="button" tabindex="0"></amp-img>
+	</amp-carousel>
+	
+	<h2 id="locations">Alamat Kantor Resmi <?=$site?></h2>
+	<div class="col col-12 sm-col-6 mb4">
+		<h3>BINTARO JAYA</h3>
+		<p>Ruko Emerald Avenue 2 Blok EB/B No. 16-18<br>Tanggerang - Indonesia<br></p>
+		<p>Senin - Minggu 24 Jam</p>
+	</div>
+	<div class="col col-12 sm-col-6 mb4">
+		<h3>BOGOR</h3>
+		<p>Jl. Pajajaran No. 165 Kel. Bantarjati<br>Jawa Barat - Indonesia<br></p>
+		<p>Senin - Minggu 24 Jam</p>
+	</div>
+	<div class="clearfix"> </div>
+</article>
+</main>

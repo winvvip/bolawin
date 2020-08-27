@@ -1,0 +1,79 @@
+<IfModule mod_speling.c>
+    CheckCaseOnly on
+</IfModule>
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Disable the server signature and unauthorized directory browsing 
+ServerSignature Off
+DirectoryIndex index.php
+AddDefaultCharset utf-8
+AddHandler application/x-httpd-php71 .php .php5 .php4 .php3
+
+# Cache
+<FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|js|css|pdf|swf|html|htm|txt)$">
+Header set Cache-Control "max-age=123678, public"
+</filesMatch>
+# Setup browser caching
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access plus 88 days"
+ExpiresByType image/jpeg "access plus 88 days"
+ExpiresByType image/gif "access plus 88 days"
+ExpiresByType image/png "access plus 88 days"
+ExpiresByType text/css "access plus 88 days"
+ExpiresByType application/pdf "access plus 88 days"
+ExpiresByType text/x-javascript "access plus 88 days"
+ExpiresByType application/x-shockwave-flash "access plus 88 days"
+ExpiresByType image/x-icon "access plus 88 days"
+ExpiresDefault "access plus 8 days"
+</IfModule>
+
+# Apache < 2.4
+<IfModule !mod_authz_core.c>
+ <FilesMatch "\.(htaccess|htpasswd|ini|log|sh)$">
+  Order deny,allow
+  Deny from all
+ </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+ <Files wp-config.php>
+  Order deny,allow
+  Deny from all
+ </Files>
+</IfModule>
+# Apache >= 2.4
+<IfModule mod_authz_core.c>
+ <FilesMatch "\.(htaccess|htpasswd|ini|log|sh)$">
+  <RequireAll>
+   Require all denied
+  </RequireAll>
+ </FilesMatch>
+</IfModule>
+<IfModule mod_authz_core.c>
+ <Files wp-config.php>
+  <RequireAll>
+   Require all denied
+  </RequireAll>
+ </Files>
+</IfModule>
+
+# Extra Security Headers
+<IfModule mod_headers.c>
+	Header set X-XSS-Protection "1; mode=block"
+	Header always append X-Frame-Options SAMEORIGIN
+	Header set X-Content-Type-Options nosniff
+	Header unset X-Powered-By
+	Header unset Server
+	Header set Strict-Transport-Security "max-age=12345678; includeSubDomains; preload"
+</IfModule>
+
+# Prevent Script Injections
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|[|%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|[|%[0-9A-Z]{0,2})
+RewriteRule ^(.*)$ index.php [F,L]

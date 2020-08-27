@@ -1,0 +1,40 @@
+main {max-width:888px;}
+#header-sidebar {padding:0 1.5rem;}
+#logo {margin:0 auto;width:168px;height:auto;max-width:80%;}
+nav #logo {margin-bottom:28px;}
+footer span {display:inline-block;}
+figcaption {padding-top: 168px;}
+figcaption, h1, h2, h3, a {text-shadow: 1px 2px 4px black;}
+a:hover {font-size:123%;}
+.ampstart-headerbar, .ampstart-footer {box-shadow: 0 0 6px 2px black;}
+.ampstart-footer {padding:18px;margin-top:18px;}
+.<?=$site?> p {text-align:justify;}
+.<?=$site?> nav, .<?=$site?> h1, .<?=$site?> h2, .<?=$site?> h3 {text-align:center;}
+.<?=$site?> h1, .<?=$site?> h2, .<?=$site?> h3, .<?=$site?> p {margin-bottom:8px;}
+.home .<?=$site?> h3 ~ p, footer {text-align:center;}
+article.<?=$site?> {padding:12px;}
+
+/* Design - Change color, background color and box shadow */
+
+body, .<?=$site?> amp-carousel {color:black;background:linear-gradient(to left, #00b4db, #0083b0);}
+#header-sidebar, .ampstart-headerbar, .ampstart-footer, article.<?=$site?> {background:linear-gradient(to right, #00b4db, #0083b0);color:black;}
+.<?=$site?> h1, .<?=$site?> h2, .<?=$site?> h3, .<?=$site?> a {color:darkblue;}
+.<?=$site?> h1 {font-family: Lato,sans-serif;}
+
+article.<?=$site?> {box-shadow: inset 0 0 8px 3px black;}
+.<?=$site?> amp-carousel {box-shadow: 0 0 8px 3px black inset;}
+
+
+/*
+article.<?=$site?> {background: linear-gradient(to right, #c31432, #240b36);}
+background: linear-gradient(to right, #00b4db, #0083b0);
+background: linear-gradient(to right, #ed213a, #93291e);
+background: linear-gradient(to right, #c31432, #240b36);
+background: linear-gradient(to right, #8e2de2, #4a00e0);
+background: linear-gradient(to right, #ff0099, #493240);
+background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+*/
+
+@media (min-width: 52.06rem) {
+.ampstart-image-fullpage-hero>amp-img {height: auto;max-height:454px;}
+}
