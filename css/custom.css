@@ -37,4 +37,5 @@ background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 
 @media (min-width: 52.06rem) {
 .ampstart-image-fullpage-hero>amp-img {height: auto;max-height:454px;}
+.home .ampstart-image-fullpage-hero>amp-img {height: auto;max-height:666px;}
 }
